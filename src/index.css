@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-display: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-heading-editorial: 'Space Grotesk', 'Outfit', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #f5f2eb;
+    color: #121316;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-display);
+    letter-spacing: -0.035em;
+  }
+
+  .font-editorial {
+    font-family: var(--font-heading-editorial);
+    letter-spacing: -0.025em;
+  }
+
+  code, pre, .font-code, .micro-label {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Custom editorial scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f2eb;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4cec2;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+/* Editorial hairline utilities */
+.border-hairline {
+  border-color: rgba(18, 19, 22, 0.1);
+}
+
+.bg-warm-sand {
+  background-color: #e9e4d8;
+}
+
+.bg-warm-paper {
+  background-color: #f5f2eb;
+}
+
+.bg-warm-card {
+  background-color: #ede8de;
+}
+
+.text-editorial-black {
+  color: #121316;
+}
+
+.text-editorial-muted {
+  color: #555860;
+}
+
+.text-cobalt {
+  color: #2563eb;
+}
+
+.bg-cobalt {
+  background-color: #2563eb;
+}
