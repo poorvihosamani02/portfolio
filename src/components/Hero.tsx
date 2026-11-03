@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import {
   MapPin,
   ArrowUpRight,
@@ -6,17 +6,13 @@ import {
   Github,
   Linkedin,
   Mail,
-  Upload,
-  RotateCcw,
   Sparkles,
   Plus,
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export default function Hero() {
-  const [customPhotoUrl, setCustomPhotoUrl] = useState<string | null>(null);
   const [imgError, setImgError] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleSmoothScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -29,16 +25,7 @@ export default function Hero() {
     }
   };
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const url = URL.createObjectURL(file);
-      setCustomPhotoUrl(url);
-      setImgError(false);
-    }
-  };
-
-  const photoSource = customPhotoUrl || '/poorvi.jpg';
+  const photoSource = PERSONAL_INFO.photoUrl;
 
   return (
     <section
@@ -206,7 +193,8 @@ export default function Hero() {
                     <img
                       src={photoSource}
                       alt="Poorvi Hosamani - AI/ML & Full-Stack Developer"
-                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      style={{ objectPosition: 'center 46%' }}
                       onError={() => setImgError(true)}
                     />
                   ) : (
@@ -240,40 +228,6 @@ export default function Hero() {
                     <span className="text-[#2563eb] font-semibold">BMSCE</span>
                   </div>
                 </div>
-              </div>
-
-              {/* Photo Controls */}
-              <div className="mt-3 flex items-center gap-3 z-10">
-                <input
-                  type="file"
-                  ref={fileInputRef}
-                  onChange={handleFileUpload}
-                  accept="image/*"
-                  className="hidden"
-                />
-                <button
-                  type="button"
-                  onClick={() => fileInputRef.current?.click()}
-                  className="text-[11px] font-mono text-[#555860] hover:text-[#121316] flex items-center gap-1 transition-colors px-2.5 py-1 rounded-md bg-[#f5f2eb] border border-[#e2ddd3]"
-                  title="Upload / preview a local photo file"
-                >
-                  <Upload className="w-3 h-3 text-[#2563eb]" />
-                  <span>{customPhotoUrl ? 'Change photo' : 'Upload photo'}</span>
-                </button>
-                {customPhotoUrl && (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setCustomPhotoUrl(null);
-                      setImgError(false);
-                    }}
-                    className="text-[11px] font-mono text-[#737680] hover:text-[#121316] flex items-center gap-1 transition-colors px-2 py-1"
-                    title="Reset to default photo"
-                  >
-                    <RotateCcw className="w-3 h-3" />
-                    <span>Reset</span>
-                  </button>
-                )}
               </div>
             </div>
 

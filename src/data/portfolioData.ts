@@ -44,6 +44,7 @@ export const PERSONAL_INFO = {
   batch: '2025 – 2029',
   yearOfStudy: 'Second Year',
   email: 'poorvihosamani02@gmail.com',
+  photoUrl: '/assets/aistudio/WhatsApp_Image_2026-11-03_at_10.23.36_PM_beeeeaef.jpeg',
   githubUrl: 'https://github.com/poorvihosamani02',
   linkedinUrl: 'https://www.linkedin.com/in/poorvi-hosamani-a46347384',
   heroIntro:
